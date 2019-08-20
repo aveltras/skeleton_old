@@ -1,0 +1,6 @@
+/.cache
+/backend/dist
+/dist
+/node_modules
+.ghc.*
+yarn.lock
