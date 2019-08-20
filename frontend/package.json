@@ -1,8 +1,5 @@
 {
     "private": true,
-    "scripts": {
-        "dev": "yarn concurrently 'node browsersync.js'"
-    },
     "devDependencies": {
         "browser-sync": "^2.26.7",
         "concurrently": "^4.1.2",

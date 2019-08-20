@@ -31,6 +31,11 @@ let
   shell = pkgs.haskellPackages.shellFor {
     packages = p: builtins.attrValues (builtins.mapAttrs (name: path: builtins.getAttr name pkgs.haskellPackages) localPackages);
     buildInputs = with pkgs; with haskellPackages; [
+
+      (writeScriptBin "watch" ''
+        yarn --cwd "$(pwd)/frontend" run concurrently 'node browsersync.js' 'cd $(pwd)/../backend && ghcid --command="cabal v1-repl" --test=:main -W'
+      '')
+      
       all-hies.versions.${ghcVersion}
       cabal-install
       haskell.compiler.${ghcVersion}
@@ -38,7 +43,6 @@ let
       yarn
     ];
   };
-
 in
 {
   nixpkgs = pkgs;

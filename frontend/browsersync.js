@@ -3,13 +3,13 @@ const proxy = require('http-proxy-middleware')
 const path = require('path')
 const Bundler = require('parcel-bundler')
 
-const bundler = new Bundler(path.resolve(__dirname, 'frontend', 'app.js'), {
+const bundler = new Bundler(path.resolve(__dirname, 'src', 'app.js'), {
   cache: true,
   minify: false,
   sourceMaps: true,
   watch: true,
-  outDir: path.join(__dirname, 'dist'),
-  publicUrl: '/',
+  outDir: path.join(__dirname, '../build'),
+  publicUrl: '/static',
   detailReport: true,
   cache: true,
   minify: true,
@@ -22,11 +22,11 @@ serve({
   open: false,
   watch: true,
   files: [
-    path.join(__dirname, 'dist'),
-    path.join(__dirname, 'backend/src/**'),
+    path.join(__dirname, '../build'),
+    path.join(__dirname, '../backend/src/**'),
   ],
   server: {
-    baseDir: path.join(__dirname, 'dist')
+    baseDir: path.join(__dirname, '../build')
   },
   middleware: [
     proxy('http://localhost:8080', {}),
