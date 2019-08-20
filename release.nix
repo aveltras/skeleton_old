@@ -17,6 +17,7 @@ let
 
   localPackages = {
     backend = ./backend;
+    migration = ./migration;
   };
 
   config = {

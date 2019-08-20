@@ -4,9 +4,7 @@
 {-# LANGUAGE TypeOperators #-}
 module Main where
 
-import Control.Monad.Trans.Reader (ReaderT, runReaderT)
 import Lucid
--- import Lucid.Servant
 import Network.Wai.Handler.Warp (run)
 import Servant
 import Servant.API.Generic
@@ -43,7 +41,7 @@ nt :: AppCustomState -> AppM a -> Handler a
 nt s x = runReaderT x s
 
 appMyMonad :: AppCustomState -> Application
-appMyMonad state = genericServeT (nt state) recordMyMonad
+appMyMonad st = genericServeT (nt st) recordMyMonad
 
 index :: Html ()
 index =
@@ -56,4 +54,4 @@ index =
       a_ [href_ "/alt"] "alt"
       p_ "test23"
       p_ "test"
-      script_ [src_ "/static/app.js"] ("" :: String)
+      script_ [src_ "/static/app.js"] ("" :: Text)

@@ -6,3 +6,5 @@
 /frontend/.cache
 /frontend/node_modules
 /frontend/yarn.lock
+
+/migration/dist

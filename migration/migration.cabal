@@ -1,9 +1,9 @@
 cabal-version: 2.2
-name: backend
+name: migration
 version: 0.0.1
 build-type: Simple
 
-executable backend
+executable moto
   main-is: Main.hs
   hs-source-dirs: src
   ghc-options: -Wall -O2 -threaded -rtsopts -with-rtsopts=-N
@@ -12,8 +12,7 @@ executable backend
         , relude (Relude as Prelude)
   build-depends: base
                , relude
-               , lucid
-               , servant
-               , servant-lucid
-               , servant-server
-               , warp
+               , di
+               , moto
+               , moto-postgresql
+               , postgresql-simple
