@@ -19,6 +19,7 @@ const bundler = new Bundler(path.resolve(__dirname, 'src', 'app.js'), {
 
 serve({
   port: 3000,
+  notify: false,  
   open: false,
   watch: true,
   files: [
