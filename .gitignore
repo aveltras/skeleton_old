@@ -6,5 +6,9 @@
 /frontend/.cache
 /frontend/node_modules
 /frontend/yarn.lock
+/frontend/index.js
+/frontend/output/
+/frontend/.spago
+/frontend/.psc*
 
 /migration/dist

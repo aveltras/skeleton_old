@@ -3,7 +3,10 @@ const proxy = require('http-proxy-middleware')
 const path = require('path')
 const Bundler = require('parcel-bundler')
 
-const bundler = new Bundler(path.resolve(__dirname, 'src', 'app.js'), {
+const bundler = new Bundler([
+    path.join(__dirname, 'assets/app.css'),
+    path.join(__dirname, './index.js')
+], {
   cache: true,
   minify: false,
   sourceMaps: true,

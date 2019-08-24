@@ -48,10 +48,10 @@ index =
   html_ $ do
     head_ $ do
       title_ "Skeleton"
-      link_ [rel_ "stylesheet", href_ "/static/app.css"]
+      link_ [rel_ "stylesheet", href_ "/static/assets/app.css"]
     body_ $ do
       a_ [href_ "/"] "index"
       a_ [href_ "/alt"] "alt"
       p_ "test23"
       p_ "test"
-      script_ [src_ "/static/app.js"] ("" :: Text)
+      script_ [src_ "/static/index.js"] ("" :: Text)
